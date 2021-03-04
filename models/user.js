@@ -1,0 +1,5 @@
+// require sequalize
+
+class User {
+
+}
