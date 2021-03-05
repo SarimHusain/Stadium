@@ -4,7 +4,8 @@
   "description": "",
   "main": "Index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Index.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +15,8 @@
     "express-handlebars": "^5.2.1",
     "mysql": "^2.18.1",
     "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }
