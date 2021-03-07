@@ -1,12 +1,15 @@
+{{! mian.hbs is the main look in html coding of the entire website.
+ Different pages will look different but the structure will remain the same }}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{title}}</title>
+	<title>{{title}}</title>  {{! title will change when different page loads }}
 </head>
 <body>
-	{{{body}}}
+	{{{body}}}  {{! 'body' will render different pages }}
 </body>
 </html>
