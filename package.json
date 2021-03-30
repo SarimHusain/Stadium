@@ -14,7 +14,11 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "mysql": "^2.18.1",
-    "sequelize": "^6.5.0"
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0",
+    "nodemailer": "*",
+    "body-parser": "*",
+    "cookie-parser": "*"
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0"
