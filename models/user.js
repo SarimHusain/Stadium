@@ -1,15 +1,21 @@
-const Sequelize = require('sequelize')
+const { Sequelize, DataTypes } = require('sequelize');
+//onst sequelize = new Sequelize('sqlite::memory:');
+const db = require('../Database');
 
-module.exports = Sequelize.define("Seat", {
-
-	Name: {
-		type: Sequelize.STRING(20),
-		allowNull: false
-	},
-    
-    Event: {
-		type: Sequelize.STRING(10),
-        allowNull: false
-    }
-    
+const User = db.define('User', {
+  // Model attributes are defined here
+  Name: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  Event: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }
+}, {
+  // Other model options go here
 });
+
+User.sync();
+
+module.exports = User;

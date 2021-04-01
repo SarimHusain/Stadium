@@ -1,34 +1,32 @@
 const { Sequelize, DataTypes } = require('sequelize');
+//onst sequelize = new Sequelize('sqlite::memory:');
 const db = require('../Database');
 
-const Employee = db.define('Employee', {
+const Event = db.define('Event', {
   // Model attributes are defined here
   Name: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  Age: {
-    type: DataTypes.INTEGER,
+  Date: {
+    type: DataTypes.STRING,
     allowNull: false
   },
-  EmpID: {
+  EID: {
     type: DataTypes.STRING,
     allowNull: false,
     primaryKey: true
   },
-  Address: {
-    type: DataTypes.STRING,
+  People: {
+    type: DataTypes.INTEGER,
   },
-  DateofJoining: {
-    type: DataTypes.STRING
+  Cost: {
+    type: DataTypes.INTEGER
   },
-  Section: {
-    type: DataTypes.STRING
-  }
 }, {
   // Other model options go here
 });
 
-Employee.sync();
+Event.sync();
 
-module.exports = Employee;
+module.exports = Event;
