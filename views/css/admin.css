@@ -1,13 +1,13 @@
-html,
-body {
-  height: 100%;
-}
-
 .form-signin {
   width: 100%;
   max-width: 330px;
-  padding: 15px;
   margin: auto;
+  padding-top: 12em;
+  padding-bottom: 8em;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .form-signin .checkbox {

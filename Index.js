@@ -7,13 +7,14 @@ const cookieParser = require('cookie-parser');
 
 const Employee = require('./models/Employee');
 const Event = require('./models/Event');
-const Seats = require('./models/Seats');
+const Seats = require('./models/seats');
 const User = require('./models/User');
 
 const server = express()
 
 const APIRouter = require('./routes/router')
 const db = require('./Database');
+
 
 // process.env.USER
 
@@ -38,6 +39,8 @@ server.use('/addons', express.static(path.join(__dirname, 'views/addons')));
 server.use('/api', APIRouter);
 
 // -----------------------------------
+
+// -----------------------------------
 server.get('/', (_, res)=>{
   // render home
   res.render('home',{title: 'IGI Stadium'})
@@ -46,6 +49,10 @@ server.get('/', (_, res)=>{
 server.get('/booking', (_, res)=>{
   // render booking
   res.render('booking',{title: 'Bookings'})
+})
+
+server.post('/booking', (_,res)=>{
+  res.render('booking', {title: 'Success', completion: true})
 })
 
 server.get('/admin', async (req, res)=>{

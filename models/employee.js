@@ -1,5 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../Database');
+const Seats = require('./seats');
+const Seat = require('./seats');
+// const Seat = require('./seats')
 
 const Employee = db.define('Employee', {
   // Model attributes are defined here
@@ -29,6 +32,11 @@ const Employee = db.define('Employee', {
   // Other model options go here
 });
 
-Employee.sync();
 
+Employee.sync();
+// Employee.associate = function (models) {
+//   Employee.hasMany(models.seats, {as: 'seats', foreignKey: 'seatId'})  
+// }
+
+//Employee.hasMany(Seats,{foreignKey: 'E_ID'})  
 module.exports = Employee;

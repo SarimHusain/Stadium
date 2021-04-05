@@ -226,6 +226,7 @@ textarea {
 
 .contact-details {
 	padding: 2em;
+  padding-bottom: 15em;
 }
 
 .contact-details a {
@@ -237,6 +238,7 @@ textarea {
 	max-width: 1000px;
 	margin: auto;
 	text-align: justify;
+  padding-top: 18em;
 }
 .contact-details-container h1 {
 	text-align: center; 

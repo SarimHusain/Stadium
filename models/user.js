@@ -11,6 +11,18 @@ const User = db.define('User', {
   Event: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  Email: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  Address: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  MoP: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 }, {
   // Other model options go here

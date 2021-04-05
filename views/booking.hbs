@@ -1,163 +1,121 @@
-<link rel="stylesheet" href="/css/bootstrap.css">	
 <link rel="stylesheet" href="/css/booking.css">
+<link rel="stylesheet" href="/css/bootstrap.css">	
+
 
 {{> header }}
 
-<main>
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-      <h2>Checkout form</h2>
-      <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-    </div>
+{{#if completion}}
+    <section>
+        <div class="response">
+            <div class="ok">
+                <h1>Thankyou for your registration</h1>
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-muted">Brief description</small>
+                <p>For any queries you may write to <b><a href="mailto:official.sarimhsn@gmail.com">official.sarimhsn@gmail.com</a><a> or go to </a><a href="/contact">Contact Us</a></b></p>
             </div>
-            <span class="text-muted">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-light">
-            <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
-            </div>
-            <span class="text-success">−$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
+        </div>
+    </section>
 
-        <form class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </form>
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">Billing address</h4>
-        <form class="needs-validation" novalidate>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
-            </div>
 
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
+{{else}}
+<div>
+  <div class="py-5">
+    {{!<img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">}}
+    <h2>Event Bookings</h2>
+  </div>
 
-            <div class="col-12">
-              <label for="username" class="form-label">Username</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="invalid-feedback">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
-
-            <div class="col-md-5">
-              <label for="country" class="form-label">Country</label>
-              <select class="form-select" id="country" required>
-                <option value="">Choose...</option>
-                <option>United States</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">State</label>
-              <select class="form-select" id="state" required>
-                <option value="">Choose...</option>
-                <option>California</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="zip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required>
-              <div class="invalid-feedback">
-                Zip code required.
-              </div>
+  <div class="rowg-5">
+    <div class="col-md-7 col-lg-8">
+      <form class="#" method="post" id="reg_form">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
             </div>
           </div>
 
-          <hr class="my-4">
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address">
-            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+          <div class="col-md-4">
+            <label for="event" class="form-label">Event</label>
+            <select class="select" id="event" required>
+              <option value="">Select event</option>
+              <option>E1</option>
+              <option>E2</option>
+              <option>E3</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid event.
+            </div>
           </div>
 
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Save this information for next time</label>
+          {{!--<div class="custom-select-wrapper">
+            <label>Event</label><br>
+            <div class="custom-select">
+              <div class="custom-select__trigger"><span>Select event</span>
+                  <div class="arrow"></div>
+              </div>
+              <div class="custom-options" >
+                <span class="custom-option" data-value="E1">E1</span>
+                <span class="custom-option" data-value="E2">E2</span>
+                <span class="custom-option" data-value="E3">E3</span>
+              </div>
+            </div>
+            <script language="Javascript">
+              document.querySelector('.custom-select-wrapper').addEventListener('click', function() {
+              this.querySelector('.custom-select').classList.toggle('open');})
+            </script>
+          </div>--}}
+
+          {{!--<div class="event">  
+                <label for="event" class="form-label">Event</label><br>
+                <div class="dropbtn">
+                  <div class="dropdown">
+                    <input type="text" id="event" placeholder="">
+                    {{!<button class="dropbtn">Dropdown</button>}}
+                    <div class="dropdown-content">
+                      <a>E1</a>
+                      <a>E2</a>
+                      <a>E3</a>
+                    </div>
+                  </div>
+                </div> 
+              </div> --}} 
+
+          <div class="col-12">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+            <div class="invalid-feedback">
+              Please enter a valid email address for updates.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+            <div class="invalid-feedback">
+              Please enter your address.
+            </div>
+          </div>
+
+          <div class="check">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="same-address">
+              <label class="form-check-label" for="same-address">Signup for publications</label>
+            </div>
+          
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="save-info">
+              <label class="form-check-label" for="save-info">Remeber my infomation</label>
+            </div>
           </div>
 
           <hr class="my-4">
 
           <h4 class="mb-3">Payment</h4>
-
+          
           <div class="my-3">
+            <p>Please select your mode of payment</p>
             <div class="form-check">
               <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
               <label class="form-check-label" for="credit">Credit card</label>
@@ -167,12 +125,16 @@
               <label class="form-check-label" for="debit">Debit card</label>
             </div>
             <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="paypal">PayPal</label>
+              <input id="UPI" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="UPI">UPI</label>
+            </div>
+            <div class="form-check">
+              <input id="Cash" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="Cash">Cash</label>
             </div>
           </div>
 
-          <div class="row gy-3">
+          {{!--<div class="row gy-3">
             <div class="col-md-6">
               <label for="cc-name" class="form-label">Name on card</label>
               <input type="text" class="form-control" id="cc-name" placeholder="" required>
@@ -207,12 +169,18 @@
             </div>
           </div>
 
-          <hr class="my-4">
+          <hr class="my-4">--}}
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-        </form>
-      </div>
+         <div class="submit">
+          <input type="submit" value="Register" id="form_button"/>
+        </div>
+        </div>  
+      </form>
     </div>
-  </main>
+  </div>
+</div>
+
+
+{{/if}}
 
 {{> footer }}
