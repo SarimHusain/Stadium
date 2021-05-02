@@ -6,16 +6,22 @@
   }
 
 .rowg-5 {
-  display: block;
+  display: flex;
   align-content: center;
   justify-content: center;
-  padding-left: 3em;
   padding-bottom: 10em;
 }
 
 .py-5 {
-  padding-left: 3em;
+  display: flex;
+  align-content: center;
+  justify-content: center;
   padding-top: 4em !important;
+}
+
+.fs {
+  font-size: 4rem;
+  font-weight: 500;
 }
 
 .check {
@@ -57,8 +63,8 @@
   padding-bottom: 15em;
 }
 
-.respose a {
-	color: #ff9e00;
+.response a {
+	color: #8f8f8f;
 }
 
 .ok {

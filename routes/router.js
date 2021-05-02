@@ -8,6 +8,6 @@ const UserRouter = require('./user');
 router.use('/employee', EmployeeRouter);
 router.use('/event', EventRouter);
 router.use('/seat', SeatsRouter);
-//router.use('/user', UserRouter);
+router.use('/user', UserRouter);
 
 module.exports = router;

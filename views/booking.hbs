@@ -5,181 +5,194 @@
 {{> header }}
 
 {{#if completion}}
-    <section>
-        <div class="response">
-            <div class="ok">
-                <h1>Thankyou for your registration</h1>
+  <section>
+      <div class="response">
+          <div class="ok">
+              <h1>Thankyou for your registration</h1>
 
-                <p>For any queries you may write to <b><a href="mailto:official.sarimhsn@gmail.com">official.sarimhsn@gmail.com</a><a> or go to </a><a href="/contact">Contact Us</a></b></p>
-            </div>
-        </div>
-    </section>
+              <p>For any queries you may write to <b><a href="mailto:official.sarimhsn@gmail.com">official.sarimhsn@gmail.com</a><a> or go to </a><a href="/contact">Contact Us</a></b></p>
+          </div>
+      </div>
+  </section>
 
 
 {{else}}
-<div>
-  <div class="py-5">
-    {{!<img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">}}
-    <h2>Event Bookings</h2>
-  </div>
+  <div>
+    <div class="py-5">
+      {{!<img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">}}
+      <h2 class="fs">Event Bookings</h2>
+    </div>
 
-  <div class="rowg-5">
-    <div class="col-md-7 col-lg-8">
-      <form class="#" method="post" id="reg_form">
-        <div class="row g-3">
-          <div class="col-sm-6">
-            <label for="firstName" class="form-label">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <label for="event" class="form-label">Event</label>
-            <select class="select" id="event" required>
-              <option value="">Select event</option>
-              <option>E1</option>
-              <option>E2</option>
-              <option>E3</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid event.
-            </div>
-          </div>
-
-          {{!--<div class="custom-select-wrapper">
-            <label>Event</label><br>
-            <div class="custom-select">
-              <div class="custom-select__trigger"><span>Select event</span>
-                  <div class="arrow"></div>
-              </div>
-              <div class="custom-options" >
-                <span class="custom-option" data-value="E1">E1</span>
-                <span class="custom-option" data-value="E2">E2</span>
-                <span class="custom-option" data-value="E3">E3</span>
+    <div class="rowg-5">
+      <div class="col-md-7 col-lg-8">
+        <form class="#" method="post" id="reg_form">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Name" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
               </div>
             </div>
-            <script language="Javascript">
-              document.querySelector('.custom-select-wrapper').addEventListener('click', function() {
-              this.querySelector('.custom-select').classList.toggle('open');})
-            </script>
-          </div>--}}
 
-          {{!--<div class="event">  
-                <label for="event" class="form-label">Event</label><br>
-                <div class="dropbtn">
-                  <div class="dropdown">
-                    <input type="text" id="event" placeholder="">
-                    {{!<button class="dropbtn">Dropdown</button>}}
-                    <div class="dropdown-content">
-                      <a>E1</a>
-                      <a>E2</a>
-                      <a>E3</a>
+            <div class="col-md-4">
+              <label for="event" class="form-label">Event</label>
+              <select class="select" id="event" required>
+                <option value="">Select event</option>
+                <option>E1</option>
+                <option>E2</option>
+                <option>E3</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid event.
+              </div>
+            </div>
+
+            {{!--<div class="custom-select-wrapper">
+              <label>Event</label><br>
+              <div class="custom-select">
+                <div class="custom-select__trigger"><span>Select event</span>
+                    <div class="arrow"></div>
+                </div>
+                <div class="custom-options" >
+                  <span class="custom-option" data-value="E1">E1</span>
+                  <span class="custom-option" data-value="E2">E2</span>
+                  <span class="custom-option" data-value="E3">E3</span>
+                </div>
+              </div>
+              <script language="Javascript">
+                document.querySelector('.custom-select-wrapper').addEventListener('click', function() {
+                this.querySelector('.custom-select').classList.toggle('open');})
+              </script>
+            </div>--}}
+
+            {{!--<div class="event">  
+                  <label for="event" class="form-label">Event</label><br>
+                  <div class="dropbtn">
+                    <div class="dropdown">
+                      <input type="text" id="event" placeholder="">
+                      {{!<button class="dropbtn">Dropdown</button>}}
+                      <div class="dropdown-content">
+                        <a>E1</a>
+                        <a>E2</a>
+                        <a>E3</a>
+                      </div>
                     </div>
-                  </div>
-                </div> 
-              </div> --}} 
+                  </div> 
+                </div> --}} 
 
-          <div class="col-12">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-            <div class="invalid-feedback">
-              Please enter a valid email address for updates.
-            </div>
-          </div>
-
-          <div class="col-12">
-            <label for="address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-            <div class="invalid-feedback">
-              Please enter your address.
-            </div>
-          </div>
-
-          <div class="check">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="same-address">
-              <label class="form-check-label" for="same-address">Signup for publications</label>
-            </div>
-          
-
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="save-info">
-              <label class="form-check-label" for="save-info">Remeber my infomation</label>
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <h4 class="mb-3">Payment</h4>
-          
-          <div class="my-3">
-            <p>Please select your mode of payment</p>
-            <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-              <label class="form-check-label" for="credit">Credit card</label>
-            </div>
-            <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="debit">Debit card</label>
-            </div>
-            <div class="form-check">
-              <input id="UPI" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="UPI">UPI</label>
-            </div>
-            <div class="form-check">
-              <input id="Cash" name="paymentMethod" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="Cash">Cash</label>
-            </div>
-          </div>
-
-          {{!--<div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">Name on card</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Full name as displayed on card</small>
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
               <div class="invalid-feedback">
-                Name on card is required
+                Please enter a valid email address for updates.
               </div>
             </div>
 
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
               <div class="invalid-feedback">
-                Credit card number is required
+                Please enter your address.
               </div>
             </div>
 
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                Expiration date required
+            <div class="check">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="same-address">
+                <label class="form-check-label" for="same-address">Signup for publications</label>
+              </div>
+            
+
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="save-info">
+                <label class="form-check-label" for="save-info">Remeber my infomation</label>
               </div>
             </div>
 
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Security code required
+            <hr class="my-4">
+
+            <h4 class="mb-3">Payment</h4>
+            
+            <div class="my-3">
+              <p>Please select your mode of payment</p>
+              <div class="form-check">
+                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                <label class="form-check-label" for="credit">Credit card</label>
+              </div>
+              <div class="form-check">
+                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="debit">Debit card</label>
+              </div>
+              <div class="form-check">
+                <input id="UPI" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="UPI">UPI</label>
+              </div>
+              <div class="form-check">
+                <input id="Cash" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label class="form-check-label" for="Cash">Cash</label>
               </div>
             </div>
+
+            {{!--<div class="row gy-3">
+              <div class="col-md-6">
+                <label for="cc-name" class="form-label">Name on card</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <small class="text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">
+                  Name on card is required
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cc-number" class="form-label">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-expiration" class="form-label">Expiration</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cc-cvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">--}}
+
+          <div class="submit">
+            <input type="submit" value="Register" id="form_button"/>
           </div>
-
-          <hr class="my-4">--}}
-
-         <div class="submit">
-          <input type="submit" value="Register" id="form_button"/>
-        </div>
-        </div>  
-      </form>
+          </div>  
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
+<script>
+  const addMovie = (ev)=>{
+    ev.preventDefault();  //to stop the form submitting
+    let movie = {
+      Name: document.getElementById('firstName').value,
+      Event: document.getElementById('event').value
+      Email: document.getElementById('email').value
+      Address: document.getElementById('address').value
+      //year: document.getElementById('yr').value
+    }
+    document.forms[0].reset(); // to clear the form for the next entries
+    //document.querySelector('form').reset();
+</script>
 
 {{/if}}
 
