@@ -5,6 +5,7 @@ const { Op } = require('sequelize')
 //create and save new user
 exports.create = (req, res) => {
     // Validate request
+    console.log(req.body);
     if (!req.body.Name) {
       res.status(400).send({
         message: "Content can not be empty!"
@@ -24,7 +25,8 @@ exports.create = (req, res) => {
     // Save user in the database
     User.create(user)
       .then(data => {
-        res.send(data);
+        //res.send(data);
+        res.render('booking', {completion:true})
       })
       .catch(err => {
         res.status(500).send({

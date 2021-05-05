@@ -14,6 +14,7 @@ const server = express()
 
 const APIRouter = require('./routes/router')
 const db = require('./Database');
+const UserRouter = require('./routes/user');
 
 
 // process.env.USER
@@ -37,6 +38,7 @@ server.use('/css', express.static(path.join(__dirname, 'views/css')));
 server.use('/addons', express.static(path.join(__dirname, 'views/addons')));
 
 server.use('/api', APIRouter);
+server.use('/user', UserRouter);
 
 // -----------------------------------
 
@@ -51,9 +53,30 @@ server.get('/booking', (_, res)=>{
   res.render('booking',{title: 'Bookings'})
 })
 
+server.get('/employees', (_, res)=>{
+  // render home
+  res.render('employees',{title: 'AdminEmployee'})
+})
+
+server.get('/events', (_, res)=>{
+  // render home
+  res.render('events',{title: 'AdminEvents'})
+})
+
+server.get('/users', (_, res)=>{
+  // render home
+  res.render('users',{title: 'AdminUsers'})
+})
+
+server.get('/seats', (_, res)=>{
+  // render home
+  res.render('seats',{title: 'AdminSeats'})
+})
+
 server.post('/booking', (_,res)=>{
   res.render('booking', {title: 'Success', completion: true})
 })
+
 
 server.get('/admin', async (req, res)=>{
   // render admin

@@ -25,11 +25,11 @@
 
     <div class="rowg-5">
       <div class="col-md-7 col-lg-8">
-        <form class="#" method="post" id="reg_form">
+        <form class="#" action="/api/user/" method="post" id="reg_form">
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="Name" value="" required>
+              <input type="text" class="form-control" name="Name" placeholder="Name" value="" required>
               <div class="invalid-feedback">
                 Valid first name is required.
               </div>
@@ -37,7 +37,7 @@
 
             <div class="col-md-4">
               <label for="event" class="form-label">Event</label>
-              <select class="select" id="event" required>
+              <select class="select" name="Event" required>
                 <option value="">Select event</option>
                 <option>E1</option>
                 <option>E2</option>
@@ -83,7 +83,7 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+              <input type="email" class="form-control" name="Email" placeholder="you@example.com" required>
               <div class="invalid-feedback">
                 Please enter a valid email address for updates.
               </div>
@@ -91,7 +91,7 @@
 
             <div class="col-12">
               <label for="address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <input type="text" class="form-control" name="Address" placeholder="1234 Main St" required>
               <div class="invalid-feedback">
                 Please enter your address.
               </div>
@@ -99,7 +99,7 @@
 
             <div class="check">
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="same-address">
+                <input type="checkbox" class="form-check-input" id="">
                 <label class="form-check-label" for="same-address">Signup for publications</label>
               </div>
             
@@ -117,19 +117,19 @@
             <div class="my-3">
               <p>Please select your mode of payment</p>
               <div class="form-check">
-                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                <input id="credit" name="MoP" type="radio" class="form-check-input" checked required>
                 <label class="form-check-label" for="credit">Credit card</label>
               </div>
               <div class="form-check">
-                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                <input id="debit" name="MoP" type="radio" class="form-check-input" required>
                 <label class="form-check-label" for="debit">Debit card</label>
               </div>
               <div class="form-check">
-                <input id="UPI" name="paymentMethod" type="radio" class="form-check-input" required>
+                <input id="UPI" name="MoP" type="radio" class="form-check-input" required>
                 <label class="form-check-label" for="UPI">UPI</label>
               </div>
               <div class="form-check">
-                <input id="Cash" name="paymentMethod" type="radio" class="form-check-input" required>
+                <input id="Cash" name="MoP" type="radio" class="form-check-input" required>
                 <label class="form-check-label" for="Cash">Cash</label>
               </div>
             </div>
@@ -181,17 +181,19 @@
   </div>
 
 <script>
-  const addMovie = (ev)=>{
+  const addUser = (ev)=>{
     ev.preventDefault();  //to stop the form submitting
-    let movie = {
+    let user = {
       Name: document.getElementById('firstName').value,
       Event: document.getElementById('event').value
       Email: document.getElementById('email').value
       Address: document.getElementById('address').value
-      //year: document.getElementById('yr').value
+      //MoP: document.getElementById('yr').value
     }
     document.forms[0].reset(); // to clear the form for the next entries
     //document.querySelector('form').reset();
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('form_button').addEventListener('click', addUser)});
 </script>
 
 {{/if}}
