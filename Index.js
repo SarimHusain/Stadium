@@ -4,6 +4,7 @@ const path = require('path');
 const handle = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override');
 
 const Employee = require('./models/Employee');
 const Event = require('./models/Event');
@@ -15,10 +16,11 @@ const server = express()
 const APIRouter = require('./routes/router')
 const db = require('./Database');
 const UserRouter = require('./routes/user');
+const { QueryTypes } = require('sequelize');
 
 
 // process.env.USER
-
+server.use(methodOverride('_method'));
 server.use(cookieParser());
 server.use(bodyParser.json()); 
 server.use(bodyParser.urlencoded({ extended: true })); 
@@ -55,8 +57,64 @@ server.get('/booking', (_, res)=>{
 
 server.get('/employees', (_, res)=>{
   // render home
-  res.render('employees',{title: 'AdminEmployee'})
+  db.query("SELECT * FROM `employees`", { type: QueryTypes.SELECT }).then( 
+    function (results) {
+      res.render('employees',{title: 'AdminEmployee', results})
+    }
+  )
 })
+
+server.post('/employees', (req,res)=>{
+  console.log(req.body.cat);
+  if(req.body.cat=="Name")
+  db.query("SELECT * FROM `employees`", { type: QueryTypes.SELECT }).then( 
+    function (results) {
+      res.render('employees',{title: 'AdminEmployee', results, Name: true})
+    }
+  )
+  else if(req.body.cat=="Employee ID")
+  db.query("SELECT * FROM `employees`", { type: QueryTypes.SELECT }).then( 
+    function (results) {
+      res.render('employees',{title: 'AdminEmployee', results, EmployeeID: true})
+    }
+  )
+})
+
+server.post('/employees/Name', (req,res)=>{
+  console.log(req.body.name)
+  var n = req.body.name
+  db.query("SELECT * FROM `employees`", { type: QueryTypes.SELECT }).then(
+    function (results) {
+      db.query("SELECT * FROM `employees` WHERE Name = :Name" , { replacements: {Name:n}, type: QueryTypes.SELECT }).then(
+        function (Names) {
+          res.render('employees',{title: 'AdminEmployee', results, Names, Name: true, Natb: true})
+        }
+      ) 
+    }
+)})
+
+server.post('/employees/EmpID', (req,res)=>{
+  console.log(req.body.EmpID)
+  var id = req.body.EmpID
+  db.query("SELECT * FROM `employees`", { type: QueryTypes.SELECT }).then(
+    function (results) {
+      db.query("SELECT * FROM `employees` WHERE EmpID = :EmpID" , {  replacements: {EmpID:id}, type: QueryTypes.SELECT }).then(
+        function (ID) {
+          res.render('employees',{title: 'AdminEmployee', results, ID, EmployeeID: true, IDtb: true})
+        }
+      ) 
+    }
+)})
+
+
+server.delete('/employees/:EmpID', async (req,res)=>{
+  var emp = req.body.EmpID
+  db.query("Delete from `employees` WHERE EmpID = emp", { type: QueryTypes.SELECT }).then((results)=>{
+    res.render('employees',{title: 'AdminEmployee', results})
+  })
+})
+
+
 
 server.get('/events', (_, res)=>{
   // render home

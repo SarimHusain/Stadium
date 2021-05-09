@@ -10,15 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "*",
+    "cookie-parser": "*",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
+    "method-override": "^3.0.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.5.0",
     "nodemailer": "*",
-    "body-parser": "*",
-    "cookie-parser": "*"
+    "sequelize": "^6.5.0"
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0"

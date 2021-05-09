@@ -4,6 +4,20 @@ const router = require("express").Router();
 // Retrieve all employees
 router.get("/", employee.findAll);
 
+
+// /search
+// req.params => /search?name="aas"
+// req.params => /search?id="aas"
+// req.params => /search?name="assd"&id="aas"
+
+// let { name, id, asdsd... } = req.params
+// query = "sad f"
+// if (name) => szhds
+// if (id) => sdfsdf
+
+// Retrieve all employees
+router.get("/Name/:Name", employee.findName);
+
 // Retrieve a single employee with EmpID
 router.get("/:EmpID", employee.findOne);
 

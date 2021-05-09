@@ -1,173 +1,284 @@
 <link rel="stylesheet" href="/css/bootstrap.css">	
 <link rel="stylesheet" href="/css/table/output.css">
+{{!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/contact.css"> --}}
 
 {{> header }}
+
 
 <main>
     <div><h1 class='hdg'>Employees</h1></div>
 
+    <div class="new">
+        <button class="add-trigger" id="Addbtn"><img src="/addons/Add.jpg" alt="Add" width="25" height="25">Add Employee</button>
+        <div id="Add" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close1">&times;</span>
+                    <h4 style="margin-bottom: 1em;">Employee Details</h4>
+                    <form method="POST" action="/api/employee/">
+                    <input type="text" name="Name" class="name-input" placeholder="Name"/>
+                    <input type="text" name="Age" class="name-input" placeholder="Age"/>
+                    <input type="text" name="EmpID" class="name-input" placeholder="EmpID"/>
+                    <input type="text" name="Address" class="name-input" placeholder="Address"/>
+                    <input type="text" name="DateofJoining" class="name-input" placeholder="Date of Joining"/>
+                    <input type="text" name="Section" class="name-input" placeholder="Section"/>
+                    <input class="add-btn" type="submit" value="Add Employee" />
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+
+    
     <div class='scroll'>
-        <table action="/api/employee/" method="get"  class="content-table">
-            <thead>
-                <tr>
-                <th>S.No.</th>
-                <th name="Name">Name</th>
-                <th name="Age">Age</th>
-                <th name="EmpID">Employee ID</th>
-                <th name="Address">Address</th>
-                <th name="DateofJoining">Date of Joining</th>
-                <th name="Section">Section</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>Sally</td>
-                <td>72,400</td>
-                <td>Students</td>
-                <td>Students</td>
-                <td>Students</td>
-                <td>Students</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>Nick</td>
-                <td>52,300</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                <td>dcode</td>
-                </tr>
-            </tbody>
-        </table>
+            <table class="content-table" id="displaytable">
+                <thead>
+                    <tr>
+                    <th>S.No.</th>
+                    <th name="Name" id="Name">Name</th>
+                    <th name="Age" id="Age">Age</th>
+                    <th name="EmpID" id="EmpID">Employee ID</th>
+                    <th name="Address" id="Address">Address</th>
+                    <th name="DateofJoining" id="DateofJoining">Date of Joining</th>
+                    <th name="Section" id="Section">Section</th>
+                    <th name="operation" id="operation"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each results}}
+                    <tr>
+                        <td></td>
+                        <td>{{this.Name}}</td>
+                        <td>{{this.Age}}</td>
+                        <td>{{this.EmpID}}</td>
+                        <td>{{this.Address}}</td>
+                        <td>{{this.DateofJoining}}</td>
+                        <td>{{this.Section}}</td>
+                        <td>
+                            {{!-- <form method="" action="/api/employee/{{this.EmpID}}">
+                                <input type="submit" class="form-1" id="edit" value="Edit">
+                            </form> --}}
+                            <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.EmpID}}')">Edit</button>
+                            <div id="modal-{{this.EmpID}}" class="modal2">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <span class="close2" onclick="closeModalById('modal-{{this.EmpID}}')">&times;</span>
+                                        <h4 style="margin-bottom: 1em;">Update Employee Details</h4>
+                                        <form method="POST" action="/api/employee/{{this.EmpID}}?_method=PUT">
+                                        <input type="text" name="Name" class="name-input" placeholder="Name" value="{{this.Name}}"/>
+                                        <input type="text" name="Age" class="name-input" placeholder="Age" value="{{this.Age}}"/>
+                                        <input type="text" name="EmpID" class="name-input" value="{{this.EmpID}}"/>
+                                        <input type="text" name="Address" class="name-input" placeholder="Address" value="{{this.Address}}"/>
+                                        <input type="text" name="DateofJoining" class="name-input" placeholder="Date of Joining" value="{{this.DateofJoining}}"/>
+                                        <input type="text" name="Section" class="name-input" placeholder="Section" value="{{this.Section}}"/>
+                                        <input class="edit-btn" type="submit" value="Update" />
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            
+                            <form method="POST" action="/api/employee/{{this.EmpID}}?_method=DELETE">
+                                <input type="submit" class="form-2" id="delete" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+    </div>
+
+    <div>
+        <form action="/employees" method="post">
+            <div class="col-md-4">
+            <label for="cat" class="form-label"></label>
+            <select class="select" name="cat" required>
+            <option value="">Search by</option>
+            <option>Employee ID</option>
+            <option>Name</option>
+            </select>
+            <div class="invalid-feedback">
+            Please provide a valid event.
+            </div>
+        </div>
+            <input type="submit" value="Submit" id="catsubmit">
+        </form>
+        {{#if Name}}
+            <form action="/employees/Name" method="POST" id="contact_form">
+                <div class="name">
+                    <input type="text" placeholder="Name" name="name" id="name_input" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="SUBMIT" id="form_button">
+                </div>
+            </form>
+            {{#if Natb}}
+                <div class='scroll'>
+                    <table class="content-table" id="displaytable">
+                        <thead>
+                            <tr>
+                            <th hidden>S.No.</th>
+                            <th name="Name" id="Name">Name</th>
+                            <th name="Age" id="Age">Age</th>
+                            <th name="EmpID" id="EmpID">Employee ID</th>
+                            <th name="Address" id="Address">Address</th>
+                            <th name="DateofJoining" id="DateofJoining">Date of Joining</th>
+                            <th name="Section" id="Section">Section</th>
+                            <th name="operation" id="operation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each Names}}
+                            <tr>
+                            <td hidden></td>
+                            <td>{{this.Name}}</td>
+                            <td>{{this.Age}}</td>
+                            <td>{{this.EmpID}}</td>
+                            <td>{{this.Address}}</td>
+                            <td>{{this.DateofJoining}}</td>
+                            <td>{{this.Section}}</td>
+                            <td>
+                                {{!-- <form method="" action="/api/employee/{{this.EmpID}}">
+                                    <input type="submit" class="form-1" id="edit" value="Edit">
+                                </form> --}}
+                                <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.EmpID}}')">Edit</button>
+                                <div id="modal-{{this.EmpID}}" class="modal2">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <span class="close2" onclick="closeModalById('modal-{{this.EmpID}}')">&times;</span>
+                                            <h4 style="margin-bottom: 1em;">Update Employee Details</h4>
+                                            <form method="POST" action="/api/employee/{{this.EmpID}}?_method=PUT">
+                                            <input type="text" name="Name" class="name-input" placeholder="Name" value="{{this.Name}}"/>
+                                            <input type="text" name="Age" class="name-input" placeholder="Age" value="{{this.Age}}"/>
+                                            <input type="text" name="EmpID" class="name-input" value="{{this.EmpID}}"/>
+                                            <input type="text" name="Address" class="name-input" placeholder="Address" value="{{this.Address}}"/>
+                                            <input type="text" name="DateofJoining" class="name-input" placeholder="Date of Joining" value="{{this.DateofJoining}}"/>
+                                            <input type="text" name="Section" class="name-input" placeholder="Section" value="{{this.Section}}"/>
+                                            <input class="edit-btn" type="submit" value="Update" />
+                                            </form>
+                                        </div>
+                                    </div>  
+                                </div>
+                                
+                                <form method="POST" action="/api/employee/{{this.EmpID}}?_method=DELETE">
+                                    <input type="submit" class="form-2" id="delete" value="Delete">
+                                </form>
+                            </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        {{/if}}
+
+        {{#if EmployeeID}}  
+            <form action="/employees/EmpID" method="POST" id="contact_form">
+                <div class="name">
+                    <label for="EmpID"></label>
+                    <input type="text" style="text-transform:uppercase" placeholder="EmpID" name="EmpID" id="EmpID_input" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="SUBMIT" id="form_button">
+                </div>
+            </form>
+            {{#if IDtb}}
+                <div class='scroll'>
+                    <table class="content-table" id="displaytable">
+                        <thead>
+                            <tr>
+                                <th hidden>S.No.</th>
+                                <th name="Name" id="Name">Name</th>
+                                <th name="Age" id="Age">Age</th>
+                                <th name="EmpID" id="EmpID">Employee ID</th>
+                                <th name="Address" id="Address">Address</th>
+                                <th name="DateofJoining" id="DateofJoining">Date of Joining</th>
+                                <th name="Section" id="Section">Section</th>
+                                <th name="operation" id="operation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each ID}}
+                                <tr>
+                                <td hidden></td>
+                                <td>{{this.Name}}</td>
+                                <td>{{this.Age}}</td>
+                                <td>{{this.EmpID}}</td>
+                                <td>{{this.Address}}</td>
+                                <td>{{this.DateofJoining}}</td>
+                                <td>{{this.Section}}</td>
+                                <td>
+                                    {{!-- <form method="" action="/api/employee/{{this.EmpID}}">
+                                        <input type="submit" class="form-1" id="edit" value="Edit">
+                                    </form> --}}
+                                    <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.EmpID}}')">Edit</button>
+                                    <div id="modal-{{this.EmpID}}" class="modal2">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <span class="close2" onclick="closeModalById('modal-{{this.EmpID}}')">&times;</span>
+                                                <h4 style="margin-bottom: 1em;">Update Employee Details</h4>
+                                                <form method="POST" action="/api/employee/{{this.EmpID}}?_method=PUT">
+                                                <input type="text" name="Name" class="name-input" placeholder="Name" value="{{this.Name}}"/>
+                                                <input type="text" name="Age" class="name-input" placeholder="Age" value="{{this.Age}}"/>
+                                                <input type="text" name="EmpID" class="name-input" value="{{this.EmpID}}"/>
+                                                <input type="text" name="Address" class="name-input" placeholder="Address" value="{{this.Address}}"/>
+                                                <input type="text" name="DateofJoining" class="name-input" placeholder="Date of Joining" value="{{this.DateofJoining}}"/>
+                                                <input type="text" name="Section" class="name-input" placeholder="Section" value="{{this.Section}}"/>
+                                                <input class="edit-btn" type="submit" value="Update" />
+                                                </form>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    
+                                    <form method="POST" action="/api/employee/{{this.EmpID}}?_method=DELETE">
+                                        <input type="submit" class="form-2" id="delete" value="Delete">
+                                    </form>
+                                </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        {{/if}}    
     </div>
     <div class="blank"></div>
+
+    <script>
+        // Get the modal
+        var modal1 = document.getElementById("Add");
+
+        // Get the button that opens the modal1
+        var btn1 = document.getElementById("Addbtn");
+
+        // Get the <span1> element that closes the modal1
+        var span1 = document.getElementsByClassName("close1")[0];
+
+        // When the user clicks the button, open the modal1 
+        btn1.onclick = function() {
+        modal1.style.display = "block";
+        }
+
+        // When the user clicks on <span1> (x), close the modal1
+        span1.onclick = function() {
+        modal1.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal1, close it
+        window.onclick = function(event) {
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+        }
+
+        function openModalById(modalid){
+            document.getElementById(modalid).style.display = "block";
+        }
+
+        function closeModalById(modalid){
+            document.getElementById(modalid).style.display = "none";
+        }
+    </script>
 </main>
 
 {{> footer }}
