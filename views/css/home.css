@@ -41,6 +41,7 @@ body {
   .marketing .col-lg-4 {
 	margin-bottom: 1.5rem;
 	text-align: center;
+	
   }
   .marketing h2 {
 	font-weight: 400;
@@ -68,6 +69,21 @@ body {
 	letter-spacing: -.05rem;
   }
   
+  /* Membershit cards
+  ------------------------- */
+
+  .box{
+	text-align: center;
+	margin-left: 4em;
+	border-style: groove;
+	width: 299px;
+	box-shadow: 10px darkgrey;
+	}
+	.row{
+		align-content: center;
+	}
+
+
   
   /* RESPONSIVE CSS
   -------------------------------------------------- */

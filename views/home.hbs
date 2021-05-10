@@ -4,20 +4,21 @@
 {{> header }}
 
 <main>
-
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+        <img src="/addons/header.jpg" alt="header" width="100%" height="100%">
+        {{!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> --}}
 
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>IGI Stadium</h1>
-            <p>Where history is made.</p>
+           <h1 style="font-size: 5rem;">IGI Stadium</h1>
+            <p style="font: weight 4px; font-size:2rem ;">Where history is made.</p>
           </div>
         </div>
       </div>
@@ -28,6 +29,17 @@
           <div class="carousel-caption">
             <h1>Live the legends</h1>
             <p>Some text.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
           </div>
         </div>
       </div>
@@ -43,6 +55,7 @@
   </div>
 
 
+
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -52,23 +65,24 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+        
 
-        <h2>Event Name</h2>
+        <h2>Football</h2>
         <p>Description</p>
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-        <h2>Event Name</h2>
+        <h2>Cricket</h2>
         <p>Description</p>
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-        <h2>Event Name</h2>
+        <h2>Tennis</h2>
         <p>Description</p>
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
@@ -81,15 +95,23 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">Content <span class="text-muted">Content</span></h2>
-        <p class="lead">Content</p>
+        <h2 style="padding-bottom: 0.5em; font-size: 3em;" class="featurette-heading">Membership</h2>
+        <p style="font-size: 1.5em; font-weight:200" class="lead">YOUR PLACE IN HISTORY GUARANTEED</p>
+        <p>There’s nothing quite like being there. The stillness of 90,000 held breaths, 
+          the electric feel of hope in the air in the final minutes, the deafening roar of victory, 
+          the sight of heroes rising and the knowledge you are about to witness legends being made.</p>
+
+        <p>Take the best seat in the house to watch history in the making. And you can say: I was there. 
+          Club IGI has six membership options so that you can pick an entertainment package that suits you. 
+          Sit back, relax and experience the best moments IGI Stadium has to offer.</p>  
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <img src="/addons/hospitality-1.jpg" alt="hospitality" width="500" height="500">
+        {{!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> --}}
 
       </div>
     </div>
-
+    {{!-- 
     <hr class="featurette-divider">
 
     <div class="row featurette">
@@ -101,11 +123,52 @@
         <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
 
       </div>
-    </div>
+    </div> --}}
 
     <hr class="featurette-divider">
 
-    <!-- /END THE FEATURETTES -->
+    <div style="padding-bottom: 20em;" class="row">
+      <div class="col-lg-4">
+        <div class="box">
+          <div><img src="/addons/box-1.jpg" alt="b1" height="165" width="293px"></div>
+          <div>
+            <img src="/addons/private.png" alt="p" style="padding-top:2.5em ;">
+            <h2>Private Box</h2>
+            <h4>₹75,000</h4>
+            <p style="padding-bottom: 2em;">Your own private haven with breath taking views and service.</p>
+          </div>
+        </div>
+      </div><!-- /.col-lg-3 -->
+
+      <div class="col-lg-4">
+        <div class="box">
+          <div><img src="/addons/box-2.jpg" alt="b1" height="165" width="293px"></div>
+          <div>
+            <img src="/addons/one-twenty.png" alt="p" style="padding-top:2.5em ;">
+            <h2>One Twenty</h2>
+            <h4>₹50,000</h4>
+            <p style="padding-bottom: 2em;">The most exclusive club anywhere in the stadium.</p>
+          </div>
+        </div>
+      </div><!-- /.col-lg-3 -->
+
+      <div class="col-lg-4">
+        <div class="box">
+          <div><img src="/addons/box-3.jpg" alt="b1" height="165" width="293px"></div>
+          <div>
+            <img src="/addons/inner-circle.png" alt="p" style="padding-top:2.5em ;">
+            <h2>Inner Circle</h2>
+            <h4>₹25,000</h4>
+            <p style="padding-bottom: 2em;">Access to variety of member-only bars and restaurents.</p>
+          </div>
+        </div>
+      </div><!-- /.col-lg-3 -->
+
+    </div><!-- /.row -->
+    
+    
+    </div>
+
 
   </div>
 </main>
@@ -143,3 +206,4 @@
     <!--=============//// END CONTENT ////=============-->--}}
 
 {{> footer }}
+

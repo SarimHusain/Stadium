@@ -5907,6 +5907,8 @@ textarea.form-control-lg {
   padding-bottom: 1.25rem;
   color: #fff;
   text-align: center;
+  width: 30em;
+  /* text-shadow: 2px 2px dimgray; */
 }
 
 .carousel-dark .carousel-control-prev-icon,
