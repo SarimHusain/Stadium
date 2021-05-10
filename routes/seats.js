@@ -14,10 +14,10 @@ router.get("/all/position", seats.findAllPosition);
 router.post("/", seats.create);
 
 // Update a seats with position
-router.put("/position", seats.update);
+router.put("/:id", seats.update);
 
 // Delete a seats with position
-router.delete("/position", seats.delete);
+router.delete("/:id", seats.delete);
 
 // Delete all seatss
 router.delete("/", seats.deleteAll);

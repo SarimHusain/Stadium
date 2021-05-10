@@ -16,12 +16,13 @@ exports.create = (req, res) => {
     const seats = {
       Position: req.body.Position,
       Filled: req.body.Filled,
+      E_ID: req.body.E_ID
     };
   
     // Save seats in the database
     Seats.create(seats)
       .then(data => {
-        res.send(data);
+        res.redirect("/seats")
       })
       .catch(err => {
         res.status(500).send({
@@ -65,25 +66,23 @@ exports.findOne = (req, res) => {
 
 // Update an seats identified by the Position
 exports.update = (req, res) => {
-    const Position = req.params.Position;
+    const id = req.params.id;
   
     Seats.update(req.body, {
-      where: { Position: Position }
+      where: { id: id }
     })
       .then(num => {
         if (num == 1) {
-          res.send({
-            message: "seats was updated successfully."
-          });
+          res.redirect("/seats")
         } else {
           res.send({
-            message: `Cannot update seats with Position=${Position}. Maybe seats was not found or req.body is empty!`
+            message: `Cannot update seats with id=${id}. Maybe seats was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating seats with Position=" + Position
+          message: "Error updating seats with id=" + id
         });
     });
 };
@@ -91,25 +90,23 @@ exports.update = (req, res) => {
 
 // Delete an seats with Position
 exports.delete = (req, res) => {
-    const Position = req.params.Position;
+    const id = req.params.id;
   
     Seats.destroy({
-      where: { Position: Position }
+      where: { id: id }
     })
       .then(num => {
         if (num == 1) {
-          res.send({
-            message: "seats was deleted successfully!"
-          });
+          res.redirect("/seats")
         } else {
           res.send({
-            message: `Cannot delete seats with Position=${Position}. Maybe seats was not found!`
+            message: `Cannot delete seats with id=${id}. Maybe seats was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete seats with Position=" + Position
+          message: "Could not delete seats with id=" + id
         });
       });
 };

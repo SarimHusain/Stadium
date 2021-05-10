@@ -1,3 +1,284 @@
+<link rel="stylesheet" href="/css/bootstrap.css">	
+<link rel="stylesheet" href="/css/table/output.css">
+{{!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/contact.css"> --}}
+
 {{> header }}
+
+
+<main>
+    <div><h1 class='hdg'>Users</h1></div>
+
+    {{!-- <div class="new">
+        <button class="add-trigger" id="Addbtn"><img src="/addons/Add.jpg" alt="Add" width="25" height="25">Add Employee</button>
+        <div id="Add" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close1">&times;</span>
+                    <h4 style="margin-bottom: 1em;">Employee Details</h4>
+                    <form method="POST" action="/api/user/">
+                    <input type="text" name="Name" class="name-input" placeholder="Name"/>
+                    <input type="text" name="Age" class="name-input" placeholder="Age"/>
+                    <input type="text" name="id" class="name-input" placeholder="id"/>
+                    <input type="text" name="Address" class="name-input" placeholder="Address"/>
+                    <input type="text" name="DateofJoining" class="name-input" placeholder="Date of Joining"/>
+                    <input type="text" name="Section" class="name-input" placeholder="Section"/>
+                    <input class="add-btn" type="submit" value="Add Employee" />
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div> --}}
+
+
+    
+    <div class='scroll'>
+            <table class="content-table" id="displaytable">
+                <thead>
+                    <tr>
+                    <th hidden></th>
+                    <th name="id" id="id">S.No.</th>
+                    <th name="Name" id="Name">Name</th>
+                    <th name="Event" id="Event">Event</th>
+                    <th name="Email" id="Email">Email</th>
+                    <th name="Address" id="Address">Address</th>
+                    <th name="MoP" id="MoP">Payment</th>
+                    <th name="operation" id="operation"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td hidden></td>
+                        <td>{{this.id}}</td>
+                        <td>{{this.Name}}</td>
+                        <td>{{this.Event}}</td>
+                        <td>{{this.Email}}</td>
+                        <td>{{this.Address}}</td>
+                        <td>{{this.Mop}}</td>
+                        <td>
+                            {{!-- <form method="" action="/api/user/{{this.id}}">
+                                <input type="submit" class="form-1" id="edit" value="Edit">
+                            </form> --}}
+                            <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.id}}')">Edit</button>
+                            <div id="modal-{{this.id}}" class="modal2">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <span class="close2" onclick="closeModalById('modal-{{this.id}}')">&times;</span>
+                                        <h4 style="margin-bottom: 1em;">Update User Details</h4>
+                                        <form method="POST" action="/api/user/{{this.id}}?_method=PUT">
+                                        <input type="text" hidden name="id" class="name-input" value="{{this.id}}"/>
+                                        <input type="text" name="Name" class="name-input" placeholder="Name" value="{{this.Name}}"/>
+                                        <input type="text" name="Event" class="name-input" placeholder="Event" value="{{this.Event}}"/>
+                                        <input type="text" name="Email" class="name-input" placeholder="Email" value="{{this.Email}}"/>
+                                        <input type="text" name="Address" class="name-input" placeholder="Address" value="{{this.Address}}"/>
+                                        <input type="text" name="MoP" class="name-input" placeholder="Payment" value="{{this.MoP}}"/>
+                                        <input class="edit-btn" type="submit" value="Update" />
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            
+                            <form method="POST" action="/api/user/{{this.id}}?_method=DELETE">
+                                <input type="submit" class="form-2" id="delete" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+    </div>
+
+    <div>
+        <form action="/users" method="POST">
+            <div class="col-md-4">
+            <label for="cat" class="form-label"></label>
+            <select class="select" name="cat" required>
+            <option value="">Search by</option>
+            <option>Event</option>
+            <option>Name</option>
+            </select>
+            <div class="invalid-feedback">
+            Please provide a valid event.
+            </div>
+        </div>
+            <input type="submit" value="Submit" id="catsubmit">
+        </form>
+        {{#if Name}}
+            <form action="/users/Name" method="POST" id="contact_form">
+                <div class="name">
+                    <input type="text" placeholder="Name" name="name" id="name_input" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="SUBMIT" id="form_button">
+                </div>
+            </form>
+            {{#if Natb}}
+                <div class='scroll'>
+                    <table class="content-table" id="displaytable">
+                        <thead>
+                            <tr>
+                            <th hidden></th>
+                            <th name="id" id="id">S.No.</th>
+                            <th name="Name" id="Name">Name</th>
+                            <th name="Event" id="Event">Event</th>
+                            <th name="Email" id="Email">Email</th>
+                            <th name="Address" id="Address">Address</th>
+                            <th name="MoP" id="MoP">Payment</th>
+                            <th name="operation" id="operation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each Names}}
+                            <tr>
+                                <td hidden></td>
+                                <td>{{this.id}}</td>
+                                <td>{{this.Name}}</td>
+                                <td>{{this.Event}}</td>
+                                <td>{{this.Email}}</td>
+                                <td>{{this.Address}}</td>
+                                <td>{{this.Mop}}</td>
+                                <td>
+                                    {{!-- <form method="" action="/api/user/{{this.id}}">
+                                        <input type="submit" class="form-1" id="edit" value="Edit">
+                                    </form> --}}
+                                    <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.id}}')">Edit</button>
+                                    <div id="modal-{{this.id}}" class="modal2">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <span class="close2" onclick="closeModalById('modal-{{this.id}}')">&times;</span>
+                                                <h4 style="margin-bottom: 1em;">Update User Details</h4>
+                                                <form method="POST" action="/api/user/{{this.id}}?_method=PUT">
+                                                <input type="text" hidden name="id" class="name-input" value="{{this.id}}"/>
+                                                <input type="text" name="Name" class="name-input" placeholder="Name" value="{{this.Name}}"/>
+                                                <input type="text" name="Event" class="name-input" placeholder="Event" value="{{this.Event}}"/>
+                                                <input type="text" name="Email" class="name-input" placeholder="Email" value="{{this.Email}}"/>
+                                                <input type="text" name="Address" class="name-input" placeholder="Address" value="{{this.Address}}"/>
+                                                <input type="text" name="MoP" class="name-input" placeholder="Payment" value="{{this.MoP}}"/>
+                                                <input class="edit-btn" type="submit" value="Update" />
+                                                </form>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    
+                                    <form method="POST" action="/api/user/{{this.id}}?_method=DELETE">
+                                        <input type="submit" class="form-2" id="delete" value="Delete">
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        {{/if}}
+
+        {{#if Event}}  
+            <form action="/users/Event" method="POST" id="contact_form">
+                <div class="name">
+                    <label for="id"></label>
+                    <input type="text" style="text-transform: uppercase;" placeholder="Event" name="event" id="id_input" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="SUBMIT" id="form_button">
+                </div>
+            </form>
+            {{#if Etb}}
+                <div class='scroll'>
+                    <table class="content-table" id="displaytable">
+                        <thead>
+                            <tr>
+                            <th hidden></th>
+                            <th name="id" id="id">S.No.</th>
+                            <th name="Name" id="Name">Name</th>
+                            <th name="Event" id="Event">Event</th>
+                            <th name="Email" id="Email">Email</th>
+                            <th name="Address" id="Address">Address</th>
+                            <th name="MoP" id="MoP">Payment</th>
+                            <th name="operation" id="operation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each events}}
+                            <tr>
+                                <td hidden></td>
+                                <td>{{this.id}}</td>
+                                <td>{{this.Name}}</td>
+                                <td>{{this.Event}}</td>
+                                <td>{{this.Email}}</td>
+                                <td>{{this.Address}}</td>
+                                <td>{{this.Mop}}</td>
+                                <td>
+                                    {{!-- <form method="" action="/api/user/{{this.id}}">
+                                        <input type="submit" class="form-1" id="edit" value="Edit">
+                                    </form> --}}
+                                    <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.id}}')">Edit</button>
+                                    <div id="modal-{{this.id}}" class="modal2">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <span class="close2" onclick="closeModalById('modal-{{this.id}}')">&times;</span>
+                                                <h4 style="margin-bottom: 1em;">Update User Details</h4>
+                                                <form method="POST" action="/api/user/{{this.id}}?_method=PUT">
+                                                <input type="text" hidden name="id" class="name-input" value="{{this.id}}"/>
+                                                <input type="text" name="Name" class="name-input" placeholder="Name" value="{{this.Name}}"/>
+                                                <input type="text" name="Event" class="name-input" placeholder="Event" value="{{this.Event}}"/>
+                                                <input type="text" name="Email" class="name-input" placeholder="Email" value="{{this.Email}}"/>
+                                                <input type="text" name="Address" class="name-input" placeholder="Address" value="{{this.Address}}"/>
+                                                <input type="text" name="MoP" class="name-input" placeholder="Payment" value="{{this.MoP}}"/>
+                                                <input class="edit-btn" type="submit" value="Update" />
+                                                </form>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    
+                                    <form method="POST" action="/api/user/{{this.id}}?_method=DELETE">
+                                        <input type="submit" class="form-2" id="delete" value="Delete">
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        {{/if}}    
+    </div>
+    <div class="blank"></div>
+
+    <script>
+        // Get the modal
+        var modal1 = document.getElementById("Add");
+
+        // Get the button that opens the modal1
+        var btn1 = document.getElementById("Addbtn");
+
+        // Get the <span1> element that closes the modal1
+        var span1 = document.getElementsByClassName("close1")[0];
+
+        // When the user clicks the button, open the modal1 
+        btn1.onclick = function() {
+        modal1.style.display = "block";
+        }
+
+        // When the user clicks on <span1> (x), close the modal1
+        span1.onclick = function() {
+        modal1.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal1, close it
+        window.onclick = function(event) {
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+        }
+
+        function openModalById(modalid){
+            document.getElementById(modalid).style.display = "block";
+        }
+
+        function closeModalById(modalid){
+            document.getElementById(modalid).style.display = "none";
+        }
+    </script>
+</main>
 
 {{> footer }}

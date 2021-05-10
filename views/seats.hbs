@@ -1,3 +1,319 @@
+<link rel="stylesheet" href="/css/bootstrap.css">	
+<link rel="stylesheet" href="/css/table/output.css">
+{{!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/contact.css"> --}}
+
 {{> header }}
+
+
+<main>
+    <div><h1 class='hdg'>Seats</h1></div>
+
+    <div class="new">
+        <button class="add-trigger" id="Addbtn"><img src="/addons/Add.jpg" alt="Add" width="25" height="25">Add Seat</button>
+        <div id="Add" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close1">&times;</span>
+                    <h4 style="margin-bottom: 1em;">Seat Details</h4>
+                    <form method="POST" action="/api/seat/">
+                    <input type="text" style="text-transform: uppercase;" name="Position" class="name-input" placeholder="Position"/>
+                    <input type="text" style="text-transform: uppercase;" name="Filled" class="name-input" placeholder="Filled"/>
+                    <input type="text" style="text-transform: uppercase;" name="E_ID" class="name-input" placeholder="E_ID"/>
+                    <input class="add-btn" type="submit" value="Add Seat" />
+                    </form>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+
+    
+    <div class='scroll'>
+            <table class="content-table" id="displaytable">
+                <thead>
+                    <tr>
+                    <th>S.No.</th>
+                    <th name="Position" id="Position">Position</th>
+                    <th name="Filled" id="Filled">Filled</th>
+                    <th name="E_ID" id="E_ID">Section Incharge</th>
+                    <th name="operation" id="operation"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each seats}}
+                    <tr>
+                        <td></td>
+                        <td style="text-transform: uppercase;">{{this.Position}}</td>
+                        <td style="text-transform: uppercase;">{{this.Filled}}</td>
+                        <td style="text-transform: uppercase;">{{this.E_ID}}</td>
+                        <td>
+                            {{!-- <form method="" action="/api/seat/{{this.EmpID}}">
+                                <input type="submit" class="form-1" id="edit" value="Edit">
+                            </form> --}}
+                            <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.id}}')">Edit</button>
+                            <div id="modal-{{this.id}}" class="modal2">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <span class="close2" onclick="closeModalById('modal-{{this.id}}')">&times;</span>
+                                        <h4 style="margin-bottom: 1em;">Update Seat Details</h4>
+                                        <form method="POST" action="/api/seat/{{this.id}}?_method=PUT">
+                                        <input type="text" style="text-transform: uppercase;" name="Position" class="name-input" placeholder="Position" value="{{this.Position}}"/>
+                                        <input type="text" style="text-transform: uppercase;" name="Filled" class="name-input" placeholder="Filled" value="{{this.Filled}}"/>
+                                        <input type="text" style="text-transform: uppercase;" name="E_ID" class="name-input" value="{{this.E_ID}}"/>
+                                        <input class="edit-btn" type="submit" value="Update" />
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            
+                            <form method="POST" action="/api/seat/{{this.id}}?_method=DELETE">
+                                <input type="submit" class="form-2" id="delete" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+    </div>
+
+    <div>
+        <form action="/seats" method="post">
+            <div class="col-md-4">
+            <label for="cat" class="form-label"></label>
+            <select class="select" name="cat" required>
+            <option value="">Search by</option>
+            <option>Position</option>
+            <option>Section Incharge</option>
+            <option>Filled</option>
+            </select>
+            <div class="invalid-feedback">
+            Please provide a valid event.
+            </div>
+        </div>
+            <input type="submit" value="Submit" id="catsubmit">
+        </form>
+        {{#if Position}}
+            <form action="/seats/position" method="POST" id="contact_form">
+                <div class="name">
+                    <input type="text" style="text-transform: uppercase;" placeholder="Position" name="position" id="name_input" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="SUBMIT" id="form_button">
+                </div>
+            </form>
+            {{#if Ptb}}
+                <div class='scroll'>
+                    <table class="content-table" id="displaytable">
+                        <thead>
+                            <tr>
+                            <th hidden>S.No.</th>
+                            <th name="Position" id="Position">Position</th>
+                            <th name="Filled" id="Filled">Filled</th>
+                            <th name="E_ID" id="E_ID">Section Incharge</th>
+                            <th name="operation" id="operation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each Positions}}
+                            <tr>
+                                <td hidden></td>
+                                <td style="text-transform: uppercase;">{{this.Position}}</td>
+                                <td style="text-transform: uppercase;">{{this.Filled}}</td>
+                                <td style="text-transform: uppercase;">{{this.E_ID}}</td>
+                                <td>
+                                    {{!-- <form method="" action="/api/seat/{{this.EmpID}}">
+                                        <input type="submit" class="form-1" id="edit" value="Edit">
+                                    </form> --}}
+                                    <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.id}}')">Edit</button>
+                                    <div id="modal-{{this.id}}" class="modal2">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <span class="close2" onclick="closeModalById('modal-{{this.id}}')">&times;</span>
+                                                <h4 style="margin-bottom: 1em;">Update Seat Details</h4>
+                                                <form method="POST" action="/api/seat/{{this.id}}?_method=PUT">
+                                                <input type="text" style="text-transform: uppercase;" name="Position" class="name-input" placeholder="Position" value="{{this.Position}}"/>
+                                                <input type="text" style="text-transform: uppercase;" name="Filled" class="name-input" placeholder="Filled" value="{{this.Filled}}"/>
+                                                <input type="text" style="text-transform: uppercase;" name="E_ID" class="name-input" value="{{this.E_ID}}"/>
+                                                <input class="edit-btn" type="submit" value="Update" />
+                                                </form>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    
+                                    <form method="POST" action="/api/seat/{{this.id}}?_method=DELETE">
+                                        <input type="submit" class="form-2" id="delete" value="Delete">
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        {{/if}}
+
+        {{#if Section}}
+            <form action="/seats/section" method="POST" id="contact_form">
+                <div class="name">
+                    <input type="text" style="text-transform: uppercase;" placeholder="Section" name="section" id="name_input" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="SUBMIT" id="form_button">
+                </div>
+            </form>
+            {{#if Stb}}
+                <div class='scroll'>
+                    <table class="content-table" id="displaytable">
+                        <thead>
+                            <tr>
+                            <th hidden>S.No.</th>
+                            <th name="Position" id="Position">Position</th>
+                            <th name="Filled" id="Filled">Filled</th>
+                            <th name="E_ID" id="E_ID">Section Incharge</th>
+                            <th name="operation" id="operation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each Sections}}
+                            <tr>
+                                <td hidden></td>
+                                <td style="text-transform: uppercase;">{{this.Position}}</td>
+                                <td style="text-transform: uppercase;">{{this.Filled}}</td>
+                                <td style="text-transform: uppercase;">{{this.E_ID}}</td>
+                                <td>
+                                    {{!-- <form method="" action="/api/seat/{{this.EmpID}}">
+                                        <input type="submit" class="form-1" id="edit" value="Edit">
+                                    </form> --}}
+                                    <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.id}}')">Edit</button>
+                                    <div id="modal-{{this.id}}" class="modal2">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <span class="close2" onclick="closeModalById('modal-{{this.id}}')">&times;</span>
+                                                <h4 style="margin-bottom: 1em;">Update Seat Details</h4>
+                                                <form method="POST" action="/api/seat/{{this.id}}?_method=PUT">
+                                                <input type="text" style="text-transform: uppercase;" name="Position" class="name-input" placeholder="Position" value="{{this.Position}}"/>
+                                                <input type="text" style="text-transform: uppercase;" name="Filled" class="name-input" placeholder="Filled" value="{{this.Filled}}"/>
+                                                <input type="text" style="text-transform: uppercase;" name="E_ID" class="name-input" value="{{this.E_ID}}"/>
+                                                <input class="edit-btn" type="submit" value="Update" />
+                                                </form>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    
+                                    <form method="POST" action="/api/seat/{{this.id}}?_method=DELETE">
+                                        <input type="submit" class="form-2" id="delete" value="Delete">
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        {{/if}}
+
+        {{#if Filled}}
+            <form action="/seats/filled" method="POST" id="contact_form">
+                <div class="name">
+                    <input type="text" style="text-transform: uppercase;" placeholder="Filled" name="filled" id="name_input" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="SUBMIT" id="form_button">
+                </div>
+            </form>
+            {{#if Ftb}}
+                <div class='scroll'>
+                    <table class="content-table" id="displaytable">
+                        <thead>
+                            <tr>
+                            <th hidden>S.No.</th>
+                            <th name="Position" id="Position">Position</th>
+                            <th name="Filled" id="Filled">Filled</th>
+                            <th name="E_ID" id="E_ID">Section Incharge</th>
+                            <th name="operation" id="operation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each Fills}}
+                            <tr>
+                                <td hidden></td>
+                                <td style="text-transform: uppercase;">{{this.Position}}</td>
+                                <td style="text-transform: uppercase;">{{this.Filled}}</td>
+                                <td style="text-transform: uppercase;">{{this.E_ID}}</td>
+                                <td>
+                                    {{!-- <form method="" action="/api/seat/{{this.EmpID}}">
+                                        <input type="submit" class="form-1" id="edit" value="Edit">
+                                    </form> --}}
+                                    <button class="edit-trigger" id="editbtn" onclick="openModalById('modal-{{this.id}}')">Edit</button>
+                                    <div id="modal-{{this.id}}" class="modal2">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <span class="close2" onclick="closeModalById('modal-{{this.id}}')">&times;</span>
+                                                <h4 style="margin-bottom: 1em;">Update Seat Details</h4>
+                                                <form method="POST" action="/api/seat/{{this.id}}?_method=PUT">
+                                                <input type="text" style="text-transform: uppercase;" name="Position" class="name-input" placeholder="Position" value="{{this.Position}}"/>
+                                                <input type="text" style="text-transform: uppercase;" name="Filled" class="name-input" placeholder="Filled" value="{{this.Filled}}"/>
+                                                <input type="text" style="text-transform: uppercase;" name="E_ID" class="name-input" value="{{this.E_ID}}"/>
+                                                <input class="edit-btn" type="submit" value="Update" />
+                                                </form>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    
+                                    <form method="POST" action="/api/seat/{{this.id}}?_method=DELETE">
+                                        <input type="submit" class="form-2" id="delete" value="Delete">
+                                    </form>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+    <div class="blank"></div>
+
+    <script>
+        // Get the modal
+        var modal1 = document.getElementById("Add");
+
+        // Get the button that opens the modal1
+        var btn1 = document.getElementById("Addbtn");
+
+        // Get the <span1> element that closes the modal1
+        var span1 = document.getElementsByClassName("close1")[0];
+
+        // When the user clicks the button, open the modal1 
+        btn1.onclick = function() {
+        modal1.style.display = "block";
+        }
+
+        // When the user clicks on <span1> (x), close the modal1
+        span1.onclick = function() {
+        modal1.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal1, close it
+        window.onclick = function(event) {
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+        }
+
+        function openModalById(modalid){
+            document.getElementById(modalid).style.display = "block";
+        }
+
+        function closeModalById(modalid){
+            document.getElementById(modalid).style.display = "none";
+            window.onclick = function(event) {
+            if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+        }
+        }
+    </script>
+</main>
 
 {{> footer }}

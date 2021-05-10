@@ -70,25 +70,23 @@ exports.findAll = (req, res) => {
 
 // Update an user identified by the EmpID
 exports.update = (req, res) => {
-    const Name = req.params.Name;
+    const id = req.params.id;
   
     User.update(req.body, {
-      where: { Name: Name }
+      where: { id: id }
     })
       .then(num => {
         if (num == 1) {
-          res.send({
-            message: "user was updated successfully."
-          });
+          res.redirect("/users")
         } else {
           res.send({
-            message: `Cannot update user with Name=${Name}. Maybe user was not found or req.body is empty!`
+            message: `Cannot update user with id=${id}. Maybe user was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating user with Name=" + Name
+          message: "Error updating user with id=" + id
         });
     });
 };
@@ -96,25 +94,23 @@ exports.update = (req, res) => {
 
 // Delete an user with Name
 exports.delete = (req, res) => {
-    const Name = req.params.Name;
+    const id = req.params.id;
   
     User.destroy({
-      where: { Name: Name }
+      where: { id: id }
     })
       .then(num => {
         if (num == 1) {
-          res.send({
-            message: "user was deleted successfully!"
-          });
+          res.redirect("/users")
         } else {
           res.send({
-            message: `Cannot delete user with Name=${Name}. Maybe user was not found!`
+            message: `Cannot delete user with id=${id}. Maybe user was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete user with Name=" + Name
+          message: "Could not delete user with id=" + id
         });
       });
 };

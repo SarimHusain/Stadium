@@ -24,7 +24,7 @@ exports.create = (req, res) => {
     // Save event in the database
     Event.create(event)
       .then(data => {
-        res.send(data);
+        res.redirect("/events")
       })
       .catch(err => {
         res.status(500).send({
@@ -75,9 +75,7 @@ exports.update = (req, res) => {
     })
       .then(num => {
         if (num == 1) {
-          res.send({
-            message: "event was updated successfully."
-          });
+          res.redirect("/events")
         } else {
           res.send({
             message: `Cannot update event with EID=${EID}. Maybe event was not found or req.body is empty!`
@@ -101,9 +99,7 @@ exports.delete = (req, res) => {
     })
       .then(num => {
         if (num == 1) {
-          res.send({
-            message: "event was deleted successfully!"
-          });
+          res.redirect("/events")
         } else {
           res.send({
             message: `Cannot delete event with EID=${EID}. Maybe event was not found!`

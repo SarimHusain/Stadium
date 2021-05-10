@@ -14,10 +14,10 @@ router.get("/", user.findAll);
 router.post("/", user.create);
 
 // Update a user with Name
-router.put("/:Name", user.update);
+router.put("/:id", user.update);
 
 // Delete a user with Name
-router.delete("/:Name", user.delete);
+router.delete("/:id", user.delete);
 
 // Delete all users
 router.delete("/", user.deleteAll);

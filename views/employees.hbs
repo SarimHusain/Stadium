@@ -46,7 +46,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each results}}
+                    {{#each employees}}
                     <tr>
                         <td></td>
                         <td>{{this.Name}}</td>
@@ -277,6 +277,11 @@
 
         function closeModalById(modalid){
             document.getElementById(modalid).style.display = "none";
+            window.onclick = function(event) {
+            if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+        }
         }
     </script>
 </main>
